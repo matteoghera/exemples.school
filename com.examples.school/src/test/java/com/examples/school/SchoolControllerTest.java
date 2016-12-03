@@ -23,8 +23,10 @@ public class SchoolControllerTest {
 	}
 	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testGetAllStudentsWhenThereAreNoStudents() {
+		List<Student> allStudents=schoolController.getAllStudents();
+		verify(database).getAllStudentsList();
+		assertEquals(0, allStudents.size());
 	}
 
 }
