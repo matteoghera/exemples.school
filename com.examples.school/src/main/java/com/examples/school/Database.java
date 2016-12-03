@@ -1,7 +1,9 @@
 package com.examples.school;
 
+import java.util.List;
+
 public interface Database {
 
-	public Student getAllStudentsList();
+	public List<Student> getAllStudentsList();
 
 }

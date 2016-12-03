@@ -17,7 +17,7 @@ public class SchoolControllerTest {
 	@Before 
 	public void setup() throws Exception{
 		database=mock(Database.class);
-		schoolController=new SchoolController();
+		schoolController=new SchoolController(database);
 		students=new ArrayList<Student>();
 		when(database.getAllStudentsList()).thenReturn(students);
 	}
