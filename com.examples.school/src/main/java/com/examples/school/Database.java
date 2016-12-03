@@ -6,6 +6,6 @@ public interface Database {
 
 	public List<Student> getAllStudentsList();
 
-	public Student findStudentById(String string);
+	public Student findStudentById(String id);
 
 }

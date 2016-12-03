@@ -48,5 +48,13 @@ public class SchoolControllerTest {
 		assertNull(student);
 	}
 	
+	@Test
+	public void testGetStudentByIdWhenStudentIsThere(){
+		students.add(new Student("1", "test"));
+		when(database.findStudentById("1")).thenReturn(students.get(0));
+		Student student=schoolController.getStudentById("1");
+		verify(database).findStudentById("1");
+		assertNotNull(student);
+	}
 
 }
