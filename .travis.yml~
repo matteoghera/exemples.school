@@ -14,4 +14,4 @@ install:
 
 
 script:
- - mvn -f com.examples.exercise/pom.xml clean verify coveralls:report
+ - mvn -f com.examples.school/pom.xml clean verify coveralls:report
