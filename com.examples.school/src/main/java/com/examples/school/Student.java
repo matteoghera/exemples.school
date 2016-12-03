@@ -5,8 +5,8 @@ public class Student {
 	private String name;
 
 	public Student(String id, String name) {
-		this.id=id;
-		this.name=name;
+		this.id = id;
+		this.name = name;
 	}
 
 }
