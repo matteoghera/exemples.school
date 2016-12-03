@@ -14,4 +14,9 @@ public class SchoolController {
 		return database.getAllStudentsList();
 	}
 
+	public Student getStudentById(String id) {
+		// TODO Auto-generated method stub
+		return database.findStudentById(id);
+	}
+
 }
