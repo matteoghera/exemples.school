@@ -1,0 +1,17 @@
+sudo: false
+
+language: java
+
+services:
+  - docker
+
+cache:
+  directories:
+  - $HOME/.m2
+
+install:
+  - docker pull mongo
+
+
+script:
+ - mvn -f com.examples.school/pom.xml clean verify coveralls:report
