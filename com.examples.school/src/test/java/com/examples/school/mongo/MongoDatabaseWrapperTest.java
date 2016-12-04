@@ -42,6 +42,12 @@ public class MongoDatabaseWrapperTest {
 		assertEquals(2, mongoDatabase.getAllStudentsList().size());
 	}
 	
+	@Test
+	public void testFindStudentByIdNotFound(){
+		addStudent("1", "first");
+		assertNull(mongoDatabase.findStudentById("2"));
+	}
+	
 	private void addStudent(String id, String name){
 		BasicDBObject document=new BasicDBObject();
 		document.put("id", id);
