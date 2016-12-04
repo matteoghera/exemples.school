@@ -13,24 +13,25 @@ import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 
-public class MongoDatabaseWrapper implements Database{
+public class MongoDatabaseWrapper implements Database {
 	private DBCollection students;
 
 	public MongoDatabaseWrapper(MongoClient mc) throws UnknownHostException {
-		DB db =mc.getDB("school");
-		students=db.getCollection("student");
+		DB db = mc.getDB("school");
+		students = db.getCollection("student");
 	}
 
 	public List<Student> getAllStudentsList() {
-		DBCursor cursor=students.find();
-		return StreamSupport.stream(cursor.spliterator(), false).map(e->new Student((String)e.get("id"), (String)e.get("name"))).collect(Collectors.toList());
+		DBCursor cursor = students.find();
+		return StreamSupport.stream(cursor.spliterator(), false)
+				.map(e -> new Student((String) e.get("id"), (String) e.get("name"))).collect(Collectors.toList());
 	}
 
 	public Student findStudentById(String id) {
-		BasicDBObject searchQuery=new BasicDBObject();
+		BasicDBObject searchQuery = new BasicDBObject();
 		searchQuery.put("id", id);
-		DBObject findOne=students.findOne(searchQuery);
-		return findOne != null ?new Student((String)findOne.get("id"), (String) findOne.get("name")): null;
+		DBObject findOne = students.findOne(searchQuery);
+		return findOne != null ? new Student((String) findOne.get("id"), (String) findOne.get("name")) : null;
 	}
 
 }
