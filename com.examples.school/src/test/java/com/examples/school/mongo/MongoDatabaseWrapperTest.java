@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.github.fakemongo.Fongo;
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
@@ -29,8 +30,22 @@ public class MongoDatabaseWrapperTest {
 	}
 	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testGetAllStudentsEmpty() {
+		assertTrue(mongoDatabase.getAllStudentsList().isEmpty());
 	}
-
+	
+	@Test
+	public void testGetAllStudentsNotEmpty(){
+		addStudent("1", "first");
+		addStudent("2", "second");
+		
+		assertEquals(2, mongoDatabase.getAllStudentsList().size());
+	}
+	
+	private void addStudent(String id, String name){
+		BasicDBObject document=new BasicDBObject();
+		document.put("id", id);
+		document.put("name", name);
+		students.insert(document);
+	}
 }
