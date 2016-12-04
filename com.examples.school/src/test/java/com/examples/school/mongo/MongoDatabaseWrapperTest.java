@@ -7,6 +7,7 @@ import java.net.UnknownHostException;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.examples.school.Student;
 import com.github.fakemongo.Fongo;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -46,6 +47,17 @@ public class MongoDatabaseWrapperTest {
 	public void testFindStudentByIdNotFound(){
 		addStudent("1", "first");
 		assertNull(mongoDatabase.findStudentById("2"));
+	}
+	
+	@Test
+	public void testFindStudentByIdFound(){
+		addStudent("1", "first");
+		addStudent("2", "second");
+		
+		Student findStudentById=mongoDatabase.findStudentById("2");
+		assertNotNull(findStudentById);
+		assertEquals("2", findStudentById.getId());
+		assertEquals("second", findStudentById.getName());
 	}
 	
 	private void addStudent(String id, String name){

@@ -8,4 +8,14 @@ public class Student {
 		this.id = id;
 		this.name = name;
 	}
+
+	public String getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
 }
