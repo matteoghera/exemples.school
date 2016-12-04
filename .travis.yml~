@@ -2,15 +2,11 @@ sudo: false
 
 language: java
 
-services:
-  - docker
 
 cache:
   directories:
   - $HOME/.m2
 
-install:
-  - docker pull mongo
 
 
 script:
