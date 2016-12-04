@@ -6,9 +6,11 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import com.examples.school.*;
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 
 public class MongoDatabaseWrapper implements Database{
@@ -25,8 +27,10 @@ public class MongoDatabaseWrapper implements Database{
 	}
 
 	public Student findStudentById(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		BasicDBObject searchQuery=new BasicDBObject();
+		searchQuery.put("id", id);
+		DBObject findOne=students.findOne(searchQuery);
+		return findOne != null ?new Student((String)findOne.get("id"), (String) findOne.get("name")): null;
 	}
 
 }
