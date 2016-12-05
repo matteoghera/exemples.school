@@ -56,7 +56,14 @@ public class SchoolControllerIT {
 		assertNull(student);
 	}
 	
-
+	@Test
+	public void testGetStudentByIdWhenStudentIsThere(){
+		addStudent("1", "test");
+		Student student=schoolController.getStudentById("1");
+		assertNotNull(student);
+		assertEquals("test", student.getName());
+	}
+	
 	private void addStudent(String id, String name) {
 		BasicDBObject document = new BasicDBObject();
 		document.put("id", id);
