@@ -59,3 +59,4 @@ public class SchoolControllerIT {
 		assertEquals("test", student.getName());
 	}
 }
+

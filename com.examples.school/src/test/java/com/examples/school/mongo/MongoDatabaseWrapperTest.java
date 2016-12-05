@@ -12,4 +12,5 @@ public class MongoDatabaseWrapperTest extends AbstractMongoDatabaseWrapperTest {
 		MongoClient mongoClient = fongo.getMongo();
 		return mongoClient;
 	}
+	
 }
