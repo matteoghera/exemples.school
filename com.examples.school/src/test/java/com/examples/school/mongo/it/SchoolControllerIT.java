@@ -11,6 +11,7 @@ import com.examples.school.SchoolController;
 import com.examples.school.Student;
 import com.examples.school.mongo.MongoDatabaseWrapper;
 import com.github.fakemongo.Fongo;
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
@@ -40,5 +41,21 @@ public class SchoolControllerIT {
 		List<Student> allStudents=schoolController.getAllStudents();
 		assertEquals(0, allStudents.size());
 	}
+	
+	@Test
+	public void testGetAllStudentsWhenThereIsOneStudents(){
+		addStudent("1", "test");
+		List<Student> allStudents=schoolController.getAllStudents();
+		assertEquals(1, allStudents.size());
+	}
+	
 
+	
+
+	private void addStudent(String id, String name) {
+		BasicDBObject document = new BasicDBObject();
+		document.put("id", id);
+		document.put("name", name);
+		students.insert(document);
+	}
 }
