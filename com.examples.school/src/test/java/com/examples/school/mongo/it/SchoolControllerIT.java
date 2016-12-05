@@ -49,7 +49,12 @@ public class SchoolControllerIT {
 		assertEquals(1, allStudents.size());
 	}
 	
-
+	@Test
+	public void testGetStudentByIdWhenStudentIsNotThere(){
+		addStudent("1", "test");
+		Student student=schoolController.getStudentById("2");
+		assertNull(student);
+	}
 	
 
 	private void addStudent(String id, String name) {
