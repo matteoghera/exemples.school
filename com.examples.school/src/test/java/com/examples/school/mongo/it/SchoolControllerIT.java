@@ -51,6 +51,7 @@ public class SchoolControllerIT {
 		assertNull(student);
 	}
 	
+	
 	@Test
 	public void testGetStudentByIdWhenStudentIsThere(){
 		mongoTestHelper.addStudent("1", "test");
