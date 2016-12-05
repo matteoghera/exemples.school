@@ -17,13 +17,13 @@ public class MongoDatabaseWrapper implements Database {
 
 	public MongoDatabaseWrapper(MongoClient mc) throws UnknownHostException {
 		DB db = mc.getDB("school");
-		
-		Jongo jongo= new Jongo(db);
-		students=jongo.getCollection("student");
+
+		Jongo jongo = new Jongo(db);
+		students = jongo.getCollection("student");
 	}
 
 	public List<Student> getAllStudentsList() {
-		Iterable<Student> iterable=students.find().as(Student.class);
+		Iterable<Student> iterable = students.find().as(Student.class);
 		return StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.toList());
 	}
 
