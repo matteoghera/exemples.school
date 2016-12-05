@@ -3,6 +3,10 @@ package com.examples.school;
 public class Student {
 	private String id;
 	private String name;
+	
+	public Student(){
+		
+	}
 
 	public Student(String id, String name) {
 		this.id = id;
@@ -16,4 +20,14 @@ public class Student {
 	public String getName() {
 		return name;
 	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 }
