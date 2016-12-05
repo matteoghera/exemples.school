@@ -18,11 +18,16 @@ public class MongoDatabaseWrapperTest {
 
 	@Before
 	public void initDB() throws UnknownHostException {
-		Fongo fongo = new Fongo("mongo server 1");
-		MongoClient mongoClient = fongo.getMongo();
+		MongoClient mongoClient = createMongoClient();
 		mongoTestHelper=new MongoTestHelper(mongoClient);
 		
 		mongoDatabase = new MongoDatabaseWrapper(mongoClient);
+	}
+
+	public MongoClient createMongoClient() {
+		Fongo fongo = new Fongo("mongo server 1");
+		MongoClient mongoClient = fongo.getMongo();
+		return mongoClient;
 	}
 
 	@Test
