@@ -56,4 +56,15 @@ public class SchoolControllerTest {
 		verify(database).findStudentById("1");
 		assertNotNull(student);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
